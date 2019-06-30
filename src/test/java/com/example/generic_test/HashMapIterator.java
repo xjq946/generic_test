@@ -66,8 +66,32 @@ public class HashMapIterator {
     @Test
     public void test05(){
         Collection<String> values = map.values();
+        System.out.println("第五种遍历方式：");
         for(String value: values){
             System.out.println(value);
         }
+    }
+
+    @Test
+    public void test06(){
+        Set<String> keySet = map.keySet();
+        System.out.println("第六种遍历方式：");
+        Iterator<String> it = keySet.iterator();
+        it.forEachRemaining(key->{
+            String value = map.get(key);
+            System.out.println(key + "=" + value);
+        });
+    }
+
+    @Test
+    public void test07(){
+        Set<Entry<String, String>> entrySet = map.entrySet();
+        Iterator<Entry<String, String>> it = entrySet.iterator();
+        System.out.println("第七种遍历方式：");
+        it.forEachRemaining(entry->{
+            String key = entry.getKey();
+            String value = entry.getValue();
+            System.out.println(key + "=" + value);
+        });
     }
 }
